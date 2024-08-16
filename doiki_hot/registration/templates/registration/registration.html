@@ -1,0 +1,14 @@
+{% extends 'porn_site/base.html' %}
+
+
+
+{% block content %}
+
+<h3>{{ title }}</h3>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Зарегестрироваться">
+
+</form>
+{% endblock content %}

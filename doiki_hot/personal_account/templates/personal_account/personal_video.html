@@ -1,0 +1,21 @@
+{% extends 'porn_site/base.html' %}
+
+{% block content %}
+    {% for film in user.favourite_video.all %}
+        <a href="{% url 'film_view' film_slug=film.slug%}"><img src="{{ film.preview.url }}"></a>
+
+        <a href="{% url 'film_view' film_slug=film.slug %}"><p>{{ film.title }}</p></a>
+
+        <h3><a href="{% url 'delete_favorite' film_slug=film.slug %}">Убрать из избранного</a></h3>
+    {% endfor %}
+{% endblock %}
+
+{% block header %}
+    <header>
+        <ul>
+        <li><a href="{% url 'home' %}">Главная</a></li>
+        <li><a href="{% url 'logout' %}">Выход</a></li>
+    </ul>
+    </header>
+
+{% endblock header %}

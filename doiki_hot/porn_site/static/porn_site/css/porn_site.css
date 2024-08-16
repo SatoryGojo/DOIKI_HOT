@@ -1,0 +1,22 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    background-color: mediumvioletred;
+    font-size: 25px;
+    width: 100%;
+
+}
+
+ul{
+   list-style: none;
+    text-align: center;
+
+}
+
+li{
+    display: inline;
+}
+

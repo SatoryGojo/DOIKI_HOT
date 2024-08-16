@@ -1,0 +1,21 @@
+{% extends 'porn_site/base.html' %}
+
+{% block title%} DOIKI {% endblock title %}
+
+{% block content %}
+    {% for film in films %}
+        <a href="{% url 'film_view' film_slug=film.slug%}"><img src="{{ film.preview.url }}"></a>
+        <a href="{% url 'film_view' film_slug=film.slug%}"><p>{{ film.title }}</p></a>
+     {% endfor %}
+{% endblock content %}
+
+
+{% block pagination %}
+    <ul>
+        {% for page in paginator.page_range %}
+            <li>
+                <a href="?page={{ page }}">{{ page }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock pagination %}

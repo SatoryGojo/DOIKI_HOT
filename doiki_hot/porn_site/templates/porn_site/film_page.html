@@ -1,0 +1,13 @@
+{% extends 'porn_site/base.html' %}
+
+{% block title %} {{ film.title }} {% endblock title %}
+
+{% block content %}
+    <img src="{{ film.preview.url }}">
+    <h3>{{ film.title }}</h3>
+    <p>Актеры:</p>
+    {% for actor in film.actor.all %}
+        <a href="{% url 'actor_films' actor_slug=actor.slug %}">{{ actor.title }}</a>
+    {% endfor %}
+    <h4><a href="{% url 'add_to_favorite' film_slug=film.slug %}">Добавить в избранное</a></h4>
+{% endblock content %}

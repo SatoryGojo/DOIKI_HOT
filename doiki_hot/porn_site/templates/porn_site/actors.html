@@ -1,0 +1,23 @@
+{% extends 'porn_site/base.html' %}
+
+{% block title%} Актеры {% endblock title %}
+
+{% block content %}
+    <p2>Актеры</p2>
+    {% for actor in actors %}
+        <img src="{{ actor.photo.url }}">
+        <p><a href="{% url 'actor_films' actor_slug=actor.slug %}">{{ actor.title }}</a></p>
+        <p>{{ actor.country }}</p>
+    {% endfor %}
+{% endblock content %}
+
+
+{% block pagination %}
+    <ul>
+        {% for page in paginator.page_range %}
+            <li>
+                <a href="?page={{ page }}">{{ page }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock pagination %}
